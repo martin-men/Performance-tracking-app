@@ -1,6 +1,6 @@
 from django.db.models import Avg
 from ..exceptions.not_found import ObjectNotFound
-from ..utils import ControlNotas, EstadoEstudiante
+from ..utils import ControlNotas
 from ..models.asignatura import Asignatura
 from ..models.estudiante import Estudiante
 from ..models.notas import HistorialNotas, TipoActividad
@@ -10,9 +10,9 @@ class NotasService:
     """ Servicio de notas
 
         Attributes:
-             id_asignatura
-             periodo
-             grupo
+             id_asignatura (int)
+             periodo (int)
+             grupo (int)
 
         Utilizado para Feature 2
         Creado por Alejandra Colcha
@@ -149,10 +149,7 @@ class NotasService:
                 tema=nota['tema'],
             )
 
-            estado_est = EstadoEstudiante(estudiante_bd.nombre_estudiante, estudiante_bd.email)
-            estado_est.numero_incidencias = estudiante_bd.numero_incidencias
-
-            control_nota = ControlNotas(estado_est)
+            control_nota = ControlNotas(estudiante_bd)
             control_nota.minimo_aceptable = asignatura.nota_minima
             control_nota.promedio = round(self.get_promedio_asignatura(int(id_est)), 2)
 
@@ -164,7 +161,7 @@ class NotasService:
                 else:
                     self.alerta_alta += 1
 
-            if control_nota.existe_riesgo and control_nota.estudiante.prioridad == 'BAJA':
+            if control_nota.existe_riesgo:
                 self.en_riesgo += 1
                 control_nota.estudiante.prioridad = 'RIESGO'
             else:

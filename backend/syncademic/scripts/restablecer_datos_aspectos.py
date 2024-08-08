@@ -4,7 +4,7 @@ from syncademic.models.aspecto import Aspecto, Docente
 
 def run():
     # Obtener el docente Ana Marciana o crear uno si no existe
-    docente, created = Docente.objects.get_or_create(
+    docente_ana, created = Docente.objects.get_or_create(
         id_docente=3
     )
 

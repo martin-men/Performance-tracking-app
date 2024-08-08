@@ -1,5 +1,6 @@
 from behave import *
-from syncademic.utils import ControlNotas, EstadoEstudiante
+from syncademic.utils import ControlNotas
+from syncademic.models.estudiante import Estudiante
 from faker import Faker
 
 # use_step_matcher("re")
@@ -13,8 +14,7 @@ def step_impl(context, promedio):
     """
 
     faker = Faker("es")
-    context.estudiante = EstadoEstudiante(faker.name(), faker.email())
-
+    context.estudiante = Estudiante(nombre_estudiante=faker.name(), email=faker.email())
     context.control_calificaciones = ControlNotas(context.estudiante)
     context.control_calificaciones.promedio = float(promedio)
 
@@ -54,8 +54,7 @@ def step_impl(context, recibe):
 def step_impl(context, promedio, ocasiones):
 
     faker = Faker("es")
-    context.estudiante = EstadoEstudiante(faker.name(), faker.email())
-    context.estudiante.numero_incidencias = int(ocasiones)
+    context.estudiante = Estudiante(nombre_estudiante=faker.name(), email=faker.email(), numero_incidencias=int(ocasiones))
 
     context.control_calificaciones = ControlNotas(context.estudiante)
     context.control_calificaciones.promedio = float(promedio)

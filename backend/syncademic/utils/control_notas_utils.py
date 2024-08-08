@@ -1,57 +1,7 @@
 # Clases de utilidades para control de notas
 # Utilizado para Feature 2
 # Creado por Alejandra Colcha
-
-class EstadoEstudiante:
-    """ EstadoEstudiante
-
-        Clase auxiliar para recopilar solo la información necesaria del estudiante
-        para realizar la verificación de incidencias por bajas calificaciones.
-
-        Attributes:
-            nombre
-            email
-            numero_incidencias
-            prioridad
-    """
-
-    def __init__(self, nombre: str, email: str):
-        self.nombre = nombre
-        self.email = email
-        self.numero_incidencias = None
-        self.prioridad = None
-
-    @property
-    def nombre(self):
-        return self._nombre
-
-    @nombre.setter
-    def nombre(self, nombre):
-        self._nombre = nombre
-
-    @property
-    def email(self):
-        return self._email
-
-    @email.setter
-    def email(self, email):
-        self._email = email
-
-    @property
-    def numero_incidencias(self):
-        return self._numero_incidencias
-
-    @numero_incidencias.setter
-    def numero_incidencias(self, numero_incidencias):
-        self._numero_incidencias = numero_incidencias
-
-    @property
-    def prioridad(self):
-        return self._prioridad
-
-    @prioridad.setter
-    def prioridad(self, prioridad):
-        self._prioridad = prioridad
+from ..models.estudiante import Estudiante
 
 
 class ControlNotas:
@@ -59,13 +9,13 @@ class ControlNotas:
         cuál es su prioridad de atención.
 
         Attributes:
-            estudiante (EstadoEstudiante)
-            rango_advertencia
-            minimo_aceptable
-            promedio
+            estudiante (Estudiante)
+            rango_advertencia (float)
+            minimo_aceptable (float)
+            promedio (float)
     """
 
-    def __init__(self, estudiante: EstadoEstudiante):
+    def __init__(self, estudiante: Estudiante):
         self.minimo_aceptable: float = 0.0
         self.rango_advertencia = 0.5
         self.estudiante = estudiante
@@ -128,5 +78,5 @@ class ControlNotas:
         self._estudiante = value
 
     @promedio.setter
-    def promedio(self, value) -> float:
+    def promedio(self, value):
         self._promedio = value

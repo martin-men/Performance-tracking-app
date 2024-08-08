@@ -3,6 +3,7 @@
 
 # FEATURE  2
 # Creado por: Darío Charro, Alejandra Colcha, Martín Mendieta
+# Página 21, documentación
 
 Característica: Identificación de estudiantes con bajas calificaciones
   Como docente quiero saber quienes son los estudiantes con tendencia a
