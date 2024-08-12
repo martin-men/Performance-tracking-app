@@ -15,7 +15,7 @@
 }
 
 .lista-notas {
-    padding: 1rem 0;
+    padding: 2rem;
     max-height: 55vh;
     display: flex;
     flex-direction: column;
@@ -23,15 +23,20 @@
     align-items: center;
     gap: 5px;
     overflow-y: auto;
+    background-color: #ffffffbb;
+    border-radius: 10px;
 }
 
 .parametros-generales {
     display: flex;
-    padding: 1rem 0;
+    padding: 2rem;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     align-items: start;
     gap: 2rem;
+    background-color: #ffffffbb;
+    border-radius: 10px;
+    height: fit-content;
 }
 
 .tema-notas {

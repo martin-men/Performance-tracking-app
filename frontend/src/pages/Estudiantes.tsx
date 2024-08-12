@@ -44,22 +44,22 @@ type EstudiantesProps = {
 function Estudiantes({ id }: EstudiantesProps) {
 
     // Variables de estado
-        // Lista de estudiantes obtenida del backend
+    // Lista de estudiantes obtenida del backend
     const [estudiantes, setEstudiantes] = useState<Estudiante[]>([])
 
-        // Lista de estudiantes que se muestran en la tabla (para filtrar)
+    // Lista de estudiantes que se muestran en la tabla (para filtrar)
     const [estudiantesVisibles, setEstudiantesVisibles] = useState<Estudiante[]>([])
-    
-        // Estudiante seleccionado para mostrar en el modal
+
+    // Estudiante seleccionado para mostrar en el modal
     const [estudianteSeleccionado, setEstudianteSeleccionado] = useState<Estudiante | null>(null)
-    
-        // Notificación de estudiante citado con éxito
+
+    // Notificación de estudiante citado con éxito
     const [estudianteCitado, setEstudianteCitado] = useState<boolean>(false)
-    
-        // Filtro de prioridad de atención
+
+    // Filtro de prioridad de atención
     const [filtro, setFiltro] = useState<string>('Todos')
-    
-        // Función para actualizar la lista de estudiantes en el contexto global
+
+    // Función para actualizar la lista de estudiantes en el contexto global
     const { setListaEstudiantes, asignatura, curso, periodoActivo } = useContextoGlobal()
 
     // Obtener lista de estudiantes del backend al cargar la página
@@ -78,17 +78,17 @@ function Estudiantes({ id }: EstudiantesProps) {
     }, [setListaEstudiantes])
 
     // Funciones
-        // Mostrar modal con información del estudiante seleccionado
+    // Mostrar modal con información del estudiante seleccionado
     const mostrarModalEstudiante = (estudiante: Estudiante) => {
         setEstudianteSeleccionado(estudiante)
     }
 
-        // Cerrar modal de estudiante
+    // Cerrar modal de estudiante
     const cerrarModalEstudiante = () => {
         setEstudianteSeleccionado(null)
     }
 
-        // Filtrar estudiantes según prioridad de atención
+    // Filtrar estudiantes según prioridad de atención
     const filtrarEstudiantes = (prioridad: string) => {
         if (prioridad === 'TODOS') {
             setEstudiantesVisibles(estudiantes)
@@ -135,10 +135,15 @@ function Estudiantes({ id }: EstudiantesProps) {
                     <tbody>
                         {estudiantesVisibles.map((estudiante) => (
                             <tr key={estudiante.id_estudiante} onClick={() => mostrarModalEstudiante(estudiante)}>
-                                <td key={`${estudiante.id_estudiante}-1`} className={`celda-tabla ${estudiante.prioridad.toLowerCase()}`}>{estudiante.nombre_estudiante}</td>
-                                <td key={`${estudiante.id_estudiante}-1`} className={`celda-tabla ${estudiante.prioridad.toLowerCase()}`}>{estudiante.numero_incidencias}</td>
-                                <td key={`${estudiante.id_estudiante}-1`} className={`celda-tabla ${estudiante.prioridad.toLowerCase()}`}>{estudiante.email}</td>
-                                <td key={`${estudiante.id_estudiante}-1`} className={`celda-tabla ${estudiante.prioridad.toLowerCase()}`}>{estudiante.promedio}</td>
+                                <td key={`${estudiante.id_estudiante}-1`} className="celda-tabla">
+                                    {estudiante.nombre_estudiante}
+                                    {(estudiante.prioridad === 'ALTA') && <Badge bg="danger" pill>Alta</Badge>}
+                                    {(estudiante.prioridad === 'MEDIA') && <Badge bg="warning" pill>Media</Badge>}
+                                    {(estudiante.prioridad === 'RIESGO') && <Badge bg="secondary" pill>En riesgo</Badge>}
+                                </td>
+                                <td key={`${estudiante.id_estudiante}-1`} className="celda-tabla">{estudiante.numero_incidencias}</td>
+                                <td key={`${estudiante.id_estudiante}-1`} className="celda-tabla">{estudiante.email}</td>
+                                <td key={`${estudiante.id_estudiante}-1`} className="celda-tabla">{estudiante.promedio}</td>
                             </tr>
                         ))}
                     </tbody>

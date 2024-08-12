@@ -1,6 +1,7 @@
 .nav-bar {
   color: white;
   height: 10vh;
-  background-color: #4d3f92;
+  background-color: #4d3f92dd;
   padding: 8px 5vw;
+  border-bottom-right-radius: 50px;
 }

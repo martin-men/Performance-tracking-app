@@ -9,7 +9,6 @@ import Estudiantes from './pages/Estudiantes';
 import EstudiantesCandidatos from './pages/EstudiantesCandidatos';
 import { useContextoGlobal } from './ContextoGlobal';
 import PerfilProfesor from './pages/Profesor';
-import { Profesor as TipoProfesor } from './types/Capacitaciones';
 import TablaProfesores from './components/TablaProfesores';
 import SeguimientoSilabo from './components/SeguimientoSilabo';
 import RegistroAvance from './components/RegistroAvance';
@@ -33,22 +32,22 @@ function App() {
   const renderAsignaturaChildren = (): React.ReactNode[] => {
     if (isSemesterClosed) {
       return [
-        <Estudiantes id="Estudiantes" />,
-        <EstudiantesCandidatos id="Estudiantes candidatos" />,
-        <RegistroAsistencia id="Registo Asistencia" />,
-        <Umbral id='Umbral' />
+        <Estudiantes key="estudiantes" id="Estudiantes" />,
+        <EstudiantesCandidatos key="estudiantesCandidatos" id="Estudiantes candidatos" />,
+        <RegistroAsistencia key="registroAsistencia" id="Registo Asistencia" />,
+        <Umbral key="umbral" id='Umbral' />
       ];
     } else {
       return [
-        <Estudiantes id="Estudiantes" />,
+        <Estudiantes key="estudiantes" id="Estudiantes" />,
         currentPage === 'SeguimientoSilabo' ? (
-          < SeguimientoSilabo id = "Seguimiento sílabo" handlePageChange ={ handlePageChange} />
+          < SeguimientoSilabo id = "Seguimiento sílabo" handlePageChange ={ handlePageChange} showNotification />
         ) : (
           < RegistroAvance id = "Seguimiento sílabo" handlePageChange ={ handlePageChange} />
         ),
-        <RegistroNotas id="Registro notas" />,
-        <Asistencia id="Asistencia" />,
-        <Umbral id='Umbral de comprensión' />
+        <RegistroNotas key="registroNotas" id="Registro notas" />,
+        <Asistencia key="asistencia" id="Asistencia" />,
+        <Umbral key="umbralComprension" id='Umbral de comprensión' />
       ];
     }
   };
@@ -105,14 +104,6 @@ function Componente_asignatura({ id }: { id: string }) {
       <h1>Componente Asignatura</h1>
     </div>
   );
-}
-
-function Componente3({ id }: { id: string }) {
-  return (
-    <div id={id}>
-      <h1>Componente 3</h1>
-    </div>
-  )
 }
 
 export default App

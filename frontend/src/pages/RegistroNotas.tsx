@@ -51,6 +51,7 @@ function RegistroNotas({ id }: RegistroNotasProps) {
     const [listaNotas, setListaNotas] = useState<Nota[]>([])
     
         // Variables para mostrar alertas de estudiante en riesgo, prioridad media y prioridad alta
+    const [mostrarAlertaExito, setMostrarAlertaExito] = useState<boolean>(false)
     const [mostrarAlertaError, setMostrarAlertaError] = useState<boolean>(false)
     const [mostrarAlertaRiesgo, setMostrarAlertaRiesgo] = useState<boolean>(false)
     const [mostrarAlertaPrioridadMedia, setMostrarAlertaPrioridadMedia] = useState<boolean>(false)
@@ -115,6 +116,7 @@ function RegistroNotas({ id }: RegistroNotasProps) {
             return
         }
         const conteoPrioridades = await registrarNotas(asignatura, periodoActivo, curso, listaNotas)
+        setMostrarAlertaExito(true)
         if (conteoPrioridades.en_riesgo > 0) {
             setEstudiantesRiesgo(conteoPrioridades.en_riesgo)
             setMostrarAlertaRiesgo(true)
@@ -166,6 +168,12 @@ function RegistroNotas({ id }: RegistroNotasProps) {
                 </div>
                 <Button onClick={() => registrarNotasEstudiantes()} size="lg" variant="primary">Registrar</Button>
                 <div className="contenedor-alertas">
+                    {
+                        mostrarAlertaExito &&
+                        <Alert variant="success" onClose={() => setMostrarAlertaExito(false)} dismissible>
+                            Notas registradas exitosamente
+                        </Alert>
+                    }
                     {
                         mostrarAlertaError &&
                         <Alert variant="danger" onClose={() => setMostrarAlertaError(false)} dismissible>

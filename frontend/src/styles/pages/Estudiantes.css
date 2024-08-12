@@ -15,22 +15,23 @@
     overflow-y: auto;
 }
 
+.contenedor-tabla table {
+    border-radius: 10px;
+}
+
+.contenedor-tabla * {
+    border: none !important;
+    font-size: 1rem !important;
+}
+
 .celda-tabla {
     text-align: center !important;
-}	
-
-.riesgo {
-    background-color: #565e64 !important;
-    color: #fff !important;
+    width: auto !important;
 }
 
-.media {
-    background-color: #FFCA2C !important;
-}
-
-.alta {
-    background-color: #BB2D3B !important;
-    color: #fff !important;
+.celda-tabla span {
+    font-size: 0.8rem !important;
+    margin-left: 10px;
 }
 
 .contenedor-notificacion {
