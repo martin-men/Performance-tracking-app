@@ -1,25 +1,27 @@
-/*
-Feature a la que responde esta pantalla:
-    F2: Identificación de estudiantes con bajas calificaciones
-
-    Como docente quiero saber quienes son los estudiantes con tendencia a tener un promedio por 
-    debajo del mínimo aceptable en base a su perfil e historial académico para comunicarme con ellos
-    y agendar una cita de ser necesaria.
-
-Grupo encargado: Grupo 2
-    - Alejandra Colcha (Backend)
-    - Darío Charro (Documentación)
-    - Martín Mendieta (Frontend)
-
-Documentación asociada:
-    Mapa navegacional y wireframe (pantalla Registro notas): https://www.figma.com/design/ihvX1EY7yVl6tCnNEyzsZQ/DCU?node-id=0-1
-    Tokens de diseño: https://www.figma.com/design/ihvX1EY7yVl6tCnNEyzsZQ/DCU?node-id=116-2
-
-Entidades backend involucradas: Estudiante, Asignatura, Notas
-
-Sección de la feature abordada en esta pantalla:
-    Registro de notas de para actualizar el perfil e historial académico de un estudiante y así poder detectar
-    se tendencia a tener un promedio por debajo del mínimo aceptable. Notificar al docente.
+/**
+* Feature a la que responde esta pantalla:
+*    F2: Identificación de estudiantes con bajas calificaciones
+*
+*    Como docente quiero saber quienes son los estudiantes con tendencia a tener un promedio por 
+*    debajo del mínimo aceptable en base a su perfil e historial académico para comunicarme con ellos
+*    y agendar una cita de ser necesaria.
+*
+* Grupo encargado: Grupo 2
+*    - Alejandra Colcha (Backend)
+*    - Darío Charro (Documentación)
+*    - Martín Mendieta (Frontend)
+* 
+* @remarks
+* Documentación asociada:
+*    Mapa navegacional y wireframe (pantalla Registro notas): https://www.figma.com/design/ihvX1EY7yVl6tCnNEyzsZQ/DCU?node-id=0-1
+*    Tokens de diseño: https://www.figma.com/design/ihvX1EY7yVl6tCnNEyzsZQ/DCU?node-id=116-2
+* @remarks
+* Entidades backend involucradas: Estudiante, Asignatura, Notas
+*
+* @remarks
+* Sección de la feature abordada en esta pantalla:
+*    Registro de notas de para actualizar el perfil e historial académico de un estudiante y así poder detectar
+*    se tendencia a tener un promedio por debajo del mínimo aceptable. Notificar al docente.
 */
 
 import { Nota } from "../types/RegistroNotas.ts"

@@ -1,25 +1,28 @@
-/*
-Feature a la que responde esta pantalla:
-    F2: Identificación de estudiantes con bajas calificaciones
-
-    Como docente quiero saber quienes son los estudiantes con tendencia a tener un promedio por 
-    debajo del mínimo aceptable en base a su perfil e historial académico para comunicarme con ellos
-    y agendar una cita de ser necesaria.
-
-Grupo encargado: Grupo 2
-    - Alejandra Colcha (Backend)
-    - Darío Charro (Documentación)
-    - Martín Mendieta (Frontend)
-
-Documentación asociada:
-    Mapa navegacional y wireframe (pantalla Estudiantes): https://www.figma.com/design/ihvX1EY7yVl6tCnNEyzsZQ/DCU?node-id=0-1
-    Tokens de diseño: https://www.figma.com/design/ihvX1EY7yVl6tCnNEyzsZQ/DCU?node-id=116-2
-
-Entidades backend involucradas: Estudiante, Asignatura
-
-Sección de la feature abordada en esta pantalla:
-    Fácil identificación de estudiantes con tendencia a tener un promedio por debajo del mínimo aceptable y
-    de estudiantes que ya lo tienen, para que el docente pueda comunicarse con ellos y agendar una cita de ser necesaria.
+/**
+* Feature a la que responde esta pantalla:
+*    F2: Identificación de estudiantes con bajas calificaciones
+*
+*    Como docente quiero saber quienes son los estudiantes con tendencia a tener un promedio por 
+*    debajo del mínimo aceptable en base a su perfil e historial académico para comunicarme con ellos
+*    y agendar una cita de ser necesaria.
+*
+* Grupo encargado: Grupo 2
+*    - Alejandra Colcha (Backend)
+*    - Darío Charro (Documentación)
+*    - Martín Mendieta (Frontend)
+* 
+* @remarks
+* Documentación asociada:
+*    Mapa navegacional y wireframe (pantalla Estudiantes): https://www.figma.com/design/ihvX1EY7yVl6tCnNEyzsZQ/DCU?node-id=0-1
+*    Tokens de diseño: https://www.figma.com/design/ihvX1EY7yVl6tCnNEyzsZQ/DCU?node-id=116-2
+* 
+* @remarks
+* Entidades backend involucradas: Estudiante, Asignatura
+*
+* @remarks
+* Sección de la feature abordada en esta pantalla:
+*    Fácil identificación de estudiantes con tendencia a tener un promedio por debajo del mínimo aceptable y
+*    de estudiantes que ya lo tienen, para que el docente pueda comunicarse con ellos y agendar una cita de ser necesaria.
 */
 
 import Table from 'react-bootstrap/Table';
@@ -141,9 +144,9 @@ function Estudiantes({ id }: EstudiantesProps) {
                                     {(estudiante.prioridad === 'MEDIA') && <Badge bg="warning" pill>Media</Badge>}
                                     {(estudiante.prioridad === 'RIESGO') && <Badge bg="secondary" pill>En riesgo</Badge>}
                                 </td>
-                                <td key={`${estudiante.id_estudiante}-1`} className="celda-tabla">{estudiante.numero_incidencias}</td>
-                                <td key={`${estudiante.id_estudiante}-1`} className="celda-tabla">{estudiante.email}</td>
-                                <td key={`${estudiante.id_estudiante}-1`} className="celda-tabla">{estudiante.promedio}</td>
+                                <td key={`${estudiante.id_estudiante}-2`} className="celda-tabla">{estudiante.numero_incidencias}</td>
+                                <td key={`${estudiante.id_estudiante}-3`} className="celda-tabla">{estudiante.email}</td>
+                                <td key={`${estudiante.id_estudiante}-4`} className="celda-tabla">{estudiante.promedio}</td>
                             </tr>
                         ))}
                     </tbody>
