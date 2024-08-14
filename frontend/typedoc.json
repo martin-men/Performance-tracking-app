@@ -1,0 +1,5 @@
+{
+    "entryPoints": ["src/pages/RegistroNotas.tsx", "src/pages/Estudiantes.tsx"], 
+    "out": "docs",                                     
+    "includeVersion": true,                                                            
+  }
